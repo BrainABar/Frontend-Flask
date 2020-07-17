@@ -7,8 +7,7 @@
 {% block content %}
   <div class="navbar">
     <span class="navbar-toggle"  onclick="toggleNavbar()">
-        <i class="fas fa-ellipsis-h"></i>
-        <i>{{ super() }}</i>
+        <svg class="fas fa-ellipsis-h fa-2x"></svg>
     </span>
     <a href="{{ url_for('personal.index') }}" class="logo">BryanBar</a>
     <ul class="nav-menu" id="js-menu">
@@ -17,8 +16,4 @@
       <li><a href="{{ url_for('personal.contact') }}" class="nav-links">Contact</a></li>
     </ul>
   </div>
-{% block body %}
-{% endblock body %}
-
-</body>
 {% endblock content %}
