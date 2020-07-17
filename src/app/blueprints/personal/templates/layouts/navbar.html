@@ -1,22 +1,19 @@
-{% extends 'layouts/layout.html' %}
+{% extends 'layouts/logo.svg.html' %}
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('personal.static', filename='navbar.css') }}">
-    <script src="{{ url_for('personal.static', filename='js/navbar.js') }}"></script>
-    {% block addhead %}
-    {% endblock addhead %}
+    <link rel="stylesheet" href="{{ url_for('personal.static', filename='navbar/navbar.css') }}">
+    <script src="{{ url_for('personal.static', filename='navbar/navbar.js') }}"></script>
 {% endblock head %}
 
 {% block content %}
-<body>
   <div class="navbar">
     <span class="navbar-toggle"  onclick="toggleNavbar()">
-      <i>Icon</i>
+      <i>{{ super() }}</i>
     </span>
-    <a href="{{ url_for('personal.index') }}" class="logo">Logo</a>
+    <a href="{{ url_for('personal.index') }}" class="logo">BryanBar</a>
     <ul class="nav-menu" id="js-menu">
       <li><a href="{{ url_for('personal.index') }}" class="nav-links">Home</a></li>
-      <li><a href="{{ url_for('personal.about') }}" class="nav-links">About</a></li>
       <li><a href="{{ url_for('personal.projects') }}" class="nav-links">Projects</a></li>
+      <li><a href="{{ url_for('personal.contact') }}" class="nav-links">Contact</a></li>
     </ul>
   </div>
 {% block body %}

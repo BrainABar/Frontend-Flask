@@ -11,9 +11,9 @@ def index():
     return render_template('index.html', title='Home')
 
 
-@bp.route('/about', methods=['GET'])
-def about():
-    return render_template('about.html', title='About')
+@bp.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html', title='Contact')
 
 
 @bp.route('/projects', methods=['GET'])

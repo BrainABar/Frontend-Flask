@@ -23,6 +23,7 @@
 .logo {
   display: inline-block;
   font-size: 22px;
+  font-family: "logo-font", Verdana, Roboto, serif;
   margin-top: 10px;
   margin-left: 20px;
 }
