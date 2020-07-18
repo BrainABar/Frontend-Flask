@@ -1,7 +1,9 @@
 html, body {
     height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 *, *::before, *::after {
@@ -18,5 +20,10 @@ html, body {
 @font-face {
   font-family: "logo-font";
   src: url('/static/cubos.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "body-font";
+  src: url('/static/sourcepro-regular.otf') format("truetype");
 }
 

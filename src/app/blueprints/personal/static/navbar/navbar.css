@@ -55,6 +55,7 @@
     margin-right: 30px;
     flex-direction: row;
     justify-content: flex-end;
+    padding-right: 30px;
   }
 
   .nav-menu li {
@@ -66,7 +67,9 @@
   }
 
   .logo {
+    font-size: 30px;
     margin-top: 0;
+    padding-left: 50px;
   }
 
   .navbar-toggle {
@@ -75,5 +78,15 @@
 
   .logo:hover, .nav-links:hover {
     color: rgba(255, 255, 255, 1);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  a.nav-links {
+    font-size: 30px;
+  }
+
+  a.logo {
+    font-size: 40px;
   }
 }

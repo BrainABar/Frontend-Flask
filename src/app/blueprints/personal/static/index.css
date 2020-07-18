@@ -6,6 +6,10 @@
   --dark-pink: 80, 31, 58;
 }
 
+html {
+  background: radial-gradient(ellipse at top, #501F3A 0%, #0F292F 100%);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -25,6 +29,7 @@
 
 body {
   color: rgb(var(--white));
+  font-family: "body-font", serif;
 }
 
 nav {
@@ -36,10 +41,8 @@ nav {
 nav a {
   font-size: 22px;
   letter-spacing: 0.3em;
-  font-family: "logo-font", Verdana, Roboto, serif;
   color: rgb(var(--white));
   padding: 1rem;
-  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,39 +51,56 @@ nav a {
   margin: 10px;
 }
 
-nav a:hover {
+a:hover {
   background: rgba(var(--dark-blue), 0.4);
   color: rgb(var(--pink));
 }
 
 
+a {
+  text-decoration: none;
+}
+
+a h2 {
+  padding: 1rem;
+  letter-spacing: 0.9em;
+  text-align: center;
+  color: rgba(var(--blue), 0.8);
+  width: 100vw;
+}
+
+a h2:hover {
+  background: rgba(var(--pink), 0.1);
+  color: rgba(var(--white), 0.9);
+}
+
 aside {
   grid-column: span 2;
   grid-row: span 2;
-  padding: 20px;
+  padding: 40px;
 }
 
-h3 {
+aside h1 {
   padding: 1rem;
   text-align: center;
-  color: rgba(var(--blue), 0.8);
-}
-
-aside h2 {
-  padding: 30px;
+  text-space: 10px;
+  font-size: 40px;
+  letter-spacing: 0.3em;
 }
 
 aside p {
   text-justify: auto;
   text-align: left;
   padding: 1rem;
-  font-size: 1.2em;
+  font-size: 0.9em;
   line-height: 2em;
+  background: rgba(var(--blue), 0.20);
+  letter-spacing: 0.1em;
 }
 
 /* global declared at static/default.css */
 .flex-container {
-  color: rgba(var(--pink), 0.5);
+  color: rgba(var(--blue), 0.8);
   justify-content: space-around;
   padding: 20px;
 }
@@ -92,9 +112,9 @@ aside p {
   text-align: center;
 }
 
-.flex-container > h3 {
-  width: 100vw;
-  text-align: center;
+.flex-container p {
+  letter-spacing: 0.1em;
+  padding: 5px;
 }
 
 @media (min-width: 600px) {
@@ -108,14 +128,34 @@ aside p {
     margin: 30px;
   }
 
+  aside h1 {
+    text-align: left;
+  }
+
+  aside p {
+    font-size: 1.2em;
+    background: rgba(var(--blue), 0.25);
+  }
 }
+
+@media (min-width: 900px){
+
+    body {
+      font-size: 2em;
+    }
+
+    nav a {
+      font-size: 1.5em;
+    }
+}
+
 
 /* Needed for background: From - https://codepen.io/saransh/pen/BKJun */
 .background {
   background: radial-gradient(ellipse at bottom, #501F3A 0%, #0F292F 100%);
   position: fixed;
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 100%;
   z-index: -1;
 }
 
