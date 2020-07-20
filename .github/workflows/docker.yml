@@ -30,4 +30,4 @@ jobs:
 
     - name: Tests for Flask app
       run: |
-        docker exec -ti flask_personal sh -c "pytest"
+        docker exec -ti flask_personal /bin/sh -c "pytest"
