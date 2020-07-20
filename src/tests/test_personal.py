@@ -7,4 +7,4 @@ def test_home(test_client):
 def test_contact(test_client):
 
     response = test_client.get('/contact')
-    assert response.status_code == 404
+    assert response.status_code == 200
