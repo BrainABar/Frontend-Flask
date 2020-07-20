@@ -26,4 +26,4 @@ jobs:
     # Runs a single command using the runners shell
     - name: Build docker-compose
       run: |
-        docker-compose up -d
+        docker-compose up -d --build
