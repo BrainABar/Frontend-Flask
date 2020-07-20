@@ -24,6 +24,6 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Docker build Flask app
+    - name: Build docker-compose
       run: |
-        docker build ./src -t flask_app:1.0.0
+        docker-compose up -d
