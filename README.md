@@ -1,4 +1,6 @@
 # Frontend-Flask
+![CI](https://github.com/BrainABar/Frontend-Flask/workflows/CI/badge.svg?branch=master)
+
 Basic Flask application that will serve mostly static files.
 Will be configured to serve its own files and be cached by nginx/varnished
 
