@@ -5,7 +5,3 @@ __pycache__
 *.pyd
 .Python
 env
-
-Dockerfile
-docker-compose.yml
-README.md
