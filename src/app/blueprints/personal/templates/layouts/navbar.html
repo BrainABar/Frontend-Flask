@@ -13,6 +13,11 @@
     <ul class="nav-menu" id="js-menu">
       <li><a href="{{ url_for('personal.index') }}" class="nav-links">Home</a></li>
       <li><a href="{{ url_for('personal.projects') }}" class="nav-links">Projects</a></li>
+      <li><a href="https://github.com/BrainABar/" class="nav-links">
+          {% block git_logo %}
+              {{ super() }}
+          {% endblock git_logo %}
+      </a></li>
     </ul>
   </div>
 {% endblock content %}
