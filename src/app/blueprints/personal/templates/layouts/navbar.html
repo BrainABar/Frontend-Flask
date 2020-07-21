@@ -13,7 +13,9 @@
     <ul class="nav-menu" id="js-menu">
       <li><a href="{{ url_for('personal.index') }}" class="nav-links">Home</a></li>
       <li><a href="{{ url_for('personal.projects') }}" class="nav-links">Projects</a></li>
-      <li><a href="{{ url_for('personal.contact') }}" class="nav-links">Contact</a></li>
     </ul>
   </div>
 {% endblock content %}
+{% block footer %}
+    {{ super() }}
+{% endblock footer %}
