@@ -35,7 +35,12 @@
     </div>
 
 
-    <a href="https://github.com/BrainABar/Frontend-Flask"><h2>Tech<svg class="fab fa-github"></svg> Stack</h2></a>
+    <a href="https://github.com/BrainABar/Frontend-Flask">
+        <h2>Tech
+            {% block git_logo %}
+                {{ super() }}
+            {% endblock git_logo %}
+            Stack</h2></a>
     <div class="flex-container footer-icons">
         <div class="flex-container">
             <div><svg style="color: rgba(249, 133, 8, 0.5)" class="fab fa-html5 fa-5x"></svg><p>HTML</p></div>
