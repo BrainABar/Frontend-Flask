@@ -1,1 +1,2 @@
-from .handlers import bp as errors_bp
+""" Errors Blueprint """
+from app.blueprints.errors.handlers import bp

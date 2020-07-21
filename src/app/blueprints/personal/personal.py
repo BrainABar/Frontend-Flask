@@ -1,4 +1,8 @@
+""" Personal Pages Blueprint """
+
+from typing import Any
 from flask import Blueprint, render_template
+
 
 bp = Blueprint('personal', __name__,
                template_folder='templates',
@@ -7,15 +11,16 @@ bp = Blueprint('personal', __name__,
 
 
 @bp.route('/', methods=['GET'])
-def index():
+def index() -> Any:
+    """
+    :return: Any
+    """
     return render_template('index.html', title='Home')
 
 
-@bp.route('/contact', methods=['GET'])
-def contact():
-    return render_template('contact.html', title='Contact')
-
-
 @bp.route('/projects', methods=['GET'])
-def projects():
+def projects() -> Any:
+    """
+    :return: Any
+    """
     return render_template('projects.html', title='Projects')

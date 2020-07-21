@@ -1,8 +1,17 @@
+""" Flask Application Factory """
 from flask import Flask
-from app.blueprints import personal_bp, errors_bp
+from app.blueprints import personal, errors
 
 
-def create_app(environment: str = None):
+def create_app(environment: str = None) -> Flask:
+    """
+    Creates the application factory and returns an instance to be used by a server like gunicorn or flask's default
+    :param environment: Application deployment environment.
+        - Production
+        - Testing
+        - Deployment (Default)
+    :return: Flask instance
+    """
     app = Flask(__name__, instance_relative_config=True)
 
     app.config['CORS_HEADER'] = 'Content-Type'
@@ -20,7 +29,7 @@ def create_app(environment: str = None):
         app.config.from_object('app.config.DevelopmentConfig')
 
     # Register blueprints
-    app.register_blueprint(personal_bp, url_prefix='/')
-    app.register_blueprint(errors_bp, url_prefix='/errors')
+    app.register_blueprint(personal.bp, url_prefix='/')
+    app.register_blueprint(errors.bp, url_prefix='/errors')
 
     return app

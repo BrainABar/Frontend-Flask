@@ -1,1 +1,2 @@
-from .personal import bp as personal_bp
+""" Personal Blueprint and files """
+from app.blueprints.personal.personal import bp
