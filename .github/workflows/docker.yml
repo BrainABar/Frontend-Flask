@@ -30,4 +30,4 @@ jobs:
 
     - name: Tests for Flask app
       run: |
-        docker-compose exec -T personal pytest
+        docker-compose exec -T flask_personal pytest
