@@ -1,8 +1,7 @@
 # Frontend-Flask
 ![CI](https://github.com/BrainABar/Frontend-Flask/workflows/CI/badge.svg?branch=master)
 
-Basic Flask application that will serve mostly static files.
-Will be configured to serve its own files and be cached by nginx/varnished
+Basic Flask web application template that uses Docker and Jinja templates.
 
 All options hosted on localhost:5000
 
@@ -10,13 +9,14 @@ Local Environment setup
 
 Virtual environment:
 ```
+> python3 -m pip install virtualenv
 > python3 -m virtualenv venv
 > source venv/bin/activate
 > python -m pip install -r requirements.txt
 > python -m pip install --editable src/
 ```
 
-Run Flask server:
+Run Flask with live reloading:
 ```
 > export FLASK_APP=src.app.run.py
 > export FLASK_ENV=development
