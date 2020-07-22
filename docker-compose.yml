@@ -5,5 +5,7 @@ services:
     container_name: flask_personal
     image: flask_app:1.0.0
     restart: always
+    environment:
+      - FLASK_APP=production
     ports:
       - 5000:5000

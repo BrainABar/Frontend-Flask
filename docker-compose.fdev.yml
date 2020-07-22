@@ -1,0 +1,22 @@
+version: '3'
+services:
+  personal:
+    container_name: flask_personal
+    # Mounts to current directory so that live-reloads can be seen
+    volumes:
+      - ./src:/usr/src
+    environment:
+      - FLASK_APP=app.run.py
+      - FLASK_ENV=development
+    command: ash -c " flask run -h 0.0.0.0 -p 5000"
+
+  live-reloader:
+    image: apogiatzis/livereloading
+    container_name: livereloader
+    privileged: true
+    environment:
+      - RELOAD_DELAY=1.5              # seconds
+      - RELOAD_CONTAINER=flask_personal
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - ./src:/usr/src
