@@ -24,7 +24,3 @@ RUN set -eux \
 
 # add root directory of package so it can found within container
 RUN python -m pip install --editable /usr/src
-# set flask enviroment to get testing config loaded in application
-CMD export FLASK_ENV=testing
-# gunicorn with 2 workers
-CMD gunicorn -w 2 -b 0.0.0.0:5000 'app:create_app()'
