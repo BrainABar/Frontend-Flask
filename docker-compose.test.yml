@@ -1,0 +1,7 @@
+version: '3'
+services:
+  personal:
+    container_name: flask_personal
+    environment:
+      - FLASK_ENV=testing
+    command: ash -c "gunicorn -w 2 -b 0.0.0.0:5000 'app:create_app()'"

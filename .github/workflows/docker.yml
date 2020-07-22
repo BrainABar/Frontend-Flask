@@ -26,7 +26,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Build docker-compose
       run: |
-        docker-compose up -d --build
+        docker-compose up -f docker-compose.base.yml -f docker-compose.test.yml -d --build
 
     - name: Tests for Flask app
       run: |
