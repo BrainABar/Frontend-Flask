@@ -5,10 +5,10 @@ services:
     # Mounts to current directory so that live-reloads can be seen
     volumes:
       - ./src:/usr/src
-    command: ash -c "
-      export FLASK_APP=app.run.py &&
-      export FLASK_ENV=development &&
-      flask run -h 0.0.0.0 -p 5000"
+    environment:
+      - FLASK_APP=app.run.py
+      - FLASK_ENV=development
+    command: ash -c " flask run -h 0.0.0.0 -p 5000"
 
   live-reloader:
     image: apogiatzis/livereloading
