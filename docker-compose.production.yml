@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+  personal:
+    # Traefik looks for the label to set up the routes automatically when deployed to production
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.flask-web.rule=Host(`example.net`) # Defines Domain name for HTTP
+      - traefik.http.routers.flask-web.entrypoints=web # Entry point defined within Traefik file
+      - traefik.http.routers.flask-web.middlewares=redirect@file # Redirects to https
+      - traefik.http.routers.flask-secure.rule=Host(`example.net`) # Defines HTTPS
+      - traefik.http.routers.flask-web.entrypoints=web-secured
+    # Not needed but defined for use with reverse proxy container
+    networks:
+      - reverse_proxy
+    environment:
+      - FLASK_APP=production
+    command: ash -c " gunicorn -w 2 -b 0.0.0.0:5000 'app:create_app()' "
+
+    # Exposed ports not needed since they will be picked up traefik if within the same docker-network
+
+# Not needed but defined for use with traefik
+# Create network before use or create through traefik docker-compose:
+# > docker network create reverse_proxy
+networks:
+  reverse_proxy:
+    name: reverse_proxy
+    external: true
