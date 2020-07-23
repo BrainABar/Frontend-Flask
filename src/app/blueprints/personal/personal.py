@@ -1,7 +1,7 @@
 """ Personal Pages Blueprint """
 
 from typing import Any
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, abort
 
 
 bp = Blueprint('personal', __name__,
