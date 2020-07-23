@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 services:
   personal:
     container_name: flask_personal
@@ -9,6 +9,8 @@ services:
       - FLASK_APP=app.run.py
       - FLASK_ENV=development
     command: ash -c " flask run -h 0.0.0.0 -p 5000"
+    ports:
+      - 5000:5000
 
   live-reloader:
     image: apogiatzis/livereloading
