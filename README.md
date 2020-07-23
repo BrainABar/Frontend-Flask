@@ -43,10 +43,22 @@ configurations as needed.
 
 Run with flask server and live reloading:
 ```
-> docker-compose -f docker-compose.base.yml -f docker-compose.fdev.yml up
+> docker-compose -f docker-compose.yml -f docker-compose.fdev.yml up
 ```
 
 Run with gunicorn server and live reloading:
 ```
-> docker-compose -f docker-compose.base.yml -f docker-compose.gdev.yml up
+> docker-compose -f docker-compose.yml -f docker-compose.gdev.yml up
+```
+
+Create enviroment to give commands such as pytest:
+```
+> docker-compose -f docker-compose.yml -f docker-compose.test.yml up
+> pytest
+```
+
+Run with gunicorn server and Traefik configurations:
+```
+> docker network create reverse_proxy # If not created will throw an error since file relies on externally created network
+> docker-compose -f docker-compose.yml -f docker-compose.production.yml up
 ```
