@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Remove once own svgs are used -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+        {% block head %}
+        <!-- Any additional headers that might be needed for the body declared in child-->
+        {% endblock head %}
+
+        {% if title %}
+            <title>BryanBar - {{ title }}</title>
+        {% else %}
+            <title>BryanBar</title>
+        {% endif %}
+    </head>
+
+    <body>
+    {% block content %}
+    {% endblock content %}
+    {% block footer %}
+        <div class="flex-container">
+            <div><h3>Get in touch:</h3></div>
+            <div><h3>ContactBryan@tuta.io</h3></div>
+        </div>
+    {% endblock footer %}
+    </body>
+</html>
