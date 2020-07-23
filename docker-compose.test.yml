@@ -4,3 +4,5 @@ services:
     container_name: flask_personal
     environment:
       - FLASK_ENV=testing
+    ports:
+      - 5000:5000
