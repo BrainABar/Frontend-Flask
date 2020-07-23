@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 services:
   personal:
     container_name: flask_personal
@@ -8,6 +8,8 @@ services:
     environment:
       - FLASK_ENV=testing
     command: ash -c " gunicorn -w 2 -b 0.0.0.0:5000 'app:create_app()' "
+    ports:
+      - 5000:5000
 
   live-reloader:
     image: apogiatzis/livereloading
