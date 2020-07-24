@@ -1,7 +1,8 @@
 name: Publish Docker Image
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     # Publish `master` as Docker `latest` image.
     branches:
       - master
@@ -12,7 +13,6 @@ on:
 
 jobs:
   docker-package:
-    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Check out Repo
