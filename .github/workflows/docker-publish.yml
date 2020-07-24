@@ -11,17 +11,18 @@ on:
       - latest
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out Repo
-        uses: actions/checkout@v2
-      - name: Push to Github Packages
-        uses: docker/build-push-actions@v1
-        with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: BrainABar/Frontend-Flask
-          tag_with_ref: true
-          push: tr
+  docker-package:
+    if: github.event.pull_request.merged == 'true'
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out Repo
+          uses: actions/checkout@v2
+        - name: Push to Github Packages
+          uses: docker/build-push-actions@v1
+          with:
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+            registry: docker.pkg.github.com
+            repository: BrainABar/Frontend-Flask
+            tag_with_ref: true
+            push: true
