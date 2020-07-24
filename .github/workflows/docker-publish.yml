@@ -2,7 +2,7 @@ name: Publish Docker Image
 
 on:
   pull_request:
-    types: [edited]
+    types: [ opened, edited, synchronize ]
     # Publish `master` as Docker `latest` image.
     branches:
       - master
