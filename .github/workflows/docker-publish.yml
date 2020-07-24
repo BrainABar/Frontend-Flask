@@ -23,7 +23,6 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          dockerfile: ./src/Dockerfile 
           registry: docker.pkg.github.com
           repository: BrainABar/Frontend-Flask
           tag_with_ref: true
