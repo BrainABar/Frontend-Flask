@@ -3,14 +3,10 @@ name: Publish Docker Image
 
 on:
   pull_request:
-    types: [closed]
+    types: [edited]
     # Publish `master` as Docker `latest` image.
     branches:
       - master
-
-    # Publish `latest` tags as releases.
-    tags:
-      - latest
 
 jobs:
   docker-package:
@@ -18,12 +14,11 @@ jobs:
     steps:
       - name: Check out Repo
         uses: actions/checkout@v2
-      - name: Push to Github Packages
-        uses: docker/build-push-actions@v1
-        with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: BrainABar/Frontend-Flask
-          tag_with_ref: true
-          push: true
+      - name: Build Docker Image
+        run: |
+          docker build -t frontend-flask:latest src/ &&
+      - name: Authenticate - Tag - Publish
+        run: |
+          docker login docker.pgk.github.com -u ${{ github.actor }} ${{ secrets.GITHUB_TOKEN }} &&
+          docker tag frontend-flask:latest docker.pkg.github.com/brainabar/frontend-flask/frontend-flask:latest &&
+          docker push docker.pkg.github.com/brainabar/frontend-flask/frontend-flask:latest
