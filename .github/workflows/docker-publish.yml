@@ -16,8 +16,12 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t frontend-flask:latest src/
-      - name: Authenticate - Tag - Publish
+      - name: Authenticate
         run: |
-          docker login docker.pgk.github.com --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} &&
+          docker login docker.pgk.github.com --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag
+        run: |
           docker tag frontend-flask:latest docker.pkg.github.com/brainabar/frontend-flask/frontend-flask:latest &&
+      - name: Publish
+        run: |
           docker push docker.pkg.github.com/brainabar/frontend-flask/frontend-flask:latest
