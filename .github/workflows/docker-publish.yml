@@ -13,15 +13,9 @@ jobs:
     steps:
       - name: Check out Repo
         uses: actions/checkout@v2
-      - name: Build Docker Image
-        run: |
-          docker build -t frontend-flask:latest src/
-      - name: Authenticate
-        run: |
-          ${{ secrets.GITHUB_TOKEN }} | docker login docker.pgk.github.com --username ${{ github.actor }} --password-stdin
-      - name: Tag
-        run: |
-          docker tag frontend-flask:latest docker.pkg.github.com/brainabar/frontend-flask/frontend-flask:latest
-      - name: Publish
-        run: |
-          docker push docker.pkg.github.com/brainabar/frontend-flask/frontend-flask:latest
+      - name: Build and Publish latest Docker Image
+        uses: VaultVulp/gp-docker-actions@1.1.6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: flask-personal
+          dockerfile: src/Dockerfile
