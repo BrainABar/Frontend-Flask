@@ -19,8 +19,6 @@ RUN set -eux \
     && apk add --no-cache --virtual .build-deps build-base \
         libressl-dev libffi-dev gcc musl-dev python3-dev \
     && python -m pip install --upgrade pip setuptools wheel \
-    && python -m pip install -r /usr/src/requirements.txt \
+    && python -m pip install --editable .
+    && python -m pip install -r ./requirements.txt \
     && rm -rf /root/.cache/pip
-
-# add root directory of package so it can found within container
-RUN python -m pip install --editable /usr/src
